@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台北大空襲-選擇劇情</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="phone-container">
+        <div class="background"></div>
+        <div class="background is-blurred"></div>
+        <div class="overlay"></div>
+        <div class="particles"></div>
+
+        <div class="voting-container">
+            <h1 class="title">劇 情 選 擇 2</h1>
+            <div class="status-tag">投票中</div>
+            
+            <div class="options">
+                <button class="vote-btn">好像女生</button>
+                <button class="vote-btn">會照顧人</button>
+            </div>
+
+            <p class="vote-status">已投給「會照顧人」！可改選</p>
+
+            <div class="results-container">
+                <div class="result-item">
+                    <div class="result-info"><span>好像女生</span><span>0票</span></div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
+                </div>
+                <div class="result-item">
+                    <div class="result-info"><span>會照顧人</span><span>1票</span></div>
+                    <div class="progress-bar"><div class="progress-fill active" style="width: 100%;"></div></div>
+                </div>
+            </div>
+        </div>
+        <footer class="game-footer">
+            <div class="footer-content">
+                <span>影片製作：錨點影音</span>
+                <span class="divider">|</span>
+                <span>技術支援：高科大</span>
+                <span class="divider">|</span>
+                <span>IP 授權：迷走工作室</span>
+            </div>
+        </footer>  
+    </div>
+</body>
+<script>
+    const buttons = document.querySelectorAll('.vote-btn');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            // 1. 先移除所有按鈕的 selected 狀態 (如果你想讓玩家可以改選)
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            
+            // 2. 幫當前點擊的按鈕加上 selected
+            this.classList.add('selected');
+
+            // 3. (選填) 更新下方的狀態文字
+            const statusText = document.querySelector('.vote-status');
+            statusText.innerText = `已鎖定選項：「${this.innerText}」`;
+            statusText.style.color = "#ffcc33"; // 讓文字也變金色
+        });
+    });
+</script>
+</html>
