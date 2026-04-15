@@ -181,12 +181,6 @@ body, html {
     transition: color 0.3s ease;
 }
 
-/* 改動 6：移除 Hover 的金黃色，維持白色 */
-.footer-content span:hover {
-    color: rgba(255, 255, 255, 0.8); /* 只是稍微變暗一點 */
-}
-
-
 
 /* 每頁都有小LOGO */
 .phone-container::after {
